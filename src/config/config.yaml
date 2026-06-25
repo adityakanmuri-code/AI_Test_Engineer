@@ -1,0 +1,8 @@
+project:
+    name: "AI_Test_Engineer"
+    base_dir: "C:\\Aditya\\ML_Practice\\AI_Test_Engineer"
+
+logging:
+  log_dir: "logs"
+  log_level: "INFO"
+  log_format: '[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s'
