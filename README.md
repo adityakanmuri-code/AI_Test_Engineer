@@ -1,5 +1,6 @@
 # **AI_TEST_ENGINEER**
-##*Goal* : The Goal here is to learn Generative AI in a practical way.So I have decided to implement a flagship project which will be covering all 
+## *Goal* : 
+The Goal here is to learn Generative AI in a practical way.So I have decided to implement a flagship project which will be covering all 
 the concepts of Gen AI + Agentic AI. I will be implementing the project in an increasing the functionality of the AI Test Engineer.
 
 Features of AI Test Engineer
