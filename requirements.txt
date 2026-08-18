@@ -1,0 +1,6 @@
+pydantic
+langchain
+langchain-ollama
+pypdf
+python-docx
+pytest
