@@ -10,3 +10,7 @@ __pycache__/
 *.log
 
 data/output/
+
+.env
+.env.*
+!.env.example
