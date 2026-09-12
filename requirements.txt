@@ -5,3 +5,6 @@ pypdf
 python-docx
 pytest
 python-dotenv
+langchain-community
+pathlib
+pypdf

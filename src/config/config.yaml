@@ -6,3 +6,10 @@ logging:
   log_dir: "logs"
   log_level: "INFO"
   log_format: '[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s'
+
+ingest:
+    brd_path: "docs\\brd\\Banking_ETL_Testing_BRD.pdf"
+    replace_text: ["Internal Use Only","Banking Data Warehouse — ETL Testing BRD"]
+    replace_patterns:
+    - "Internal\\s+Use\\s+Only"
+    - "Banking\\s+Data\\s+Warehouse\\s+[—–-]\\s*ETL\\s+Testing\\s+BRD"
