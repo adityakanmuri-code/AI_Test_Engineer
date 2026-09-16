@@ -14,11 +14,7 @@ def main():
     sections = parser.document_parser(text)
 
     for section in sections:
-        print("="*60)
-        print(f"SECTION_ID: {section.section_id}")
-        print(f"TITLE: {section.title}")
-        print(f"SECTION_LENGTH : {len(section.content)}")
-        print(section.content[:100])
-        print(f"="*60)
+        if section.section_id == "8":
+            print(f"SECTION CONTENT : {section.content}")
 if __name__ == "__main__":
     main()

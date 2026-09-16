@@ -1,0 +1,38 @@
+﻿├── data
+│   ├── input
+│   └── output
+├── docs
+│   └── brd
+├── logs
+├── prompt_library
+├── src
+│   ├── config
+│   │   ├── config.yaml
+│   │   └── settings.py
+│   ├── ingestion
+│   │   ├── file_ingestor.py
+│   │   └── text_formatter.py
+│   ├── llm
+│   │   ├── ollama_client.py
+│   │   └── test_ollama.py
+│   ├── models
+│   │   ├── actor.py
+│   │   ├── business_rules.py
+│   │   ├── input_system.py
+│   │   ├── output_system.py
+│   │   ├── req_source.py
+│   │   ├── requirement.py
+│   │   └── response.py
+│   ├── parser
+│   │   └── section_parser.py
+│   ├── utils
+│   │   ├── exceptions.py
+│   │   └── logger.py
+│   └── validation
+├── tests
+├── .env
+├── main.py
+├── project_structure.txt
+├── pyproject.toml
+├── README.md
+└── requirements.txt

@@ -110,6 +110,7 @@ class SectionParser:
                 log_message = "ERROR : Empty line has been passed in __detect_major_section function."
                 logging.info(log_message)
                 raise ValueError(log_message,sys)
+            
             pattern = r"<SECTION\s+id\s*=\s*(\d+)\s+title\s*=\s*([^>]+)>"
             match = re.match(pattern,line)
 
