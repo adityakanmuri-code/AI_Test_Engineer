@@ -13,3 +13,6 @@ ingest:
     replace_patterns:
     - "Internal\\s+Use\\s+Only"
     - "Banking\\s+Data\\s+Warehouse\\s+[—–-]\\s*ETL\\s+Testing\\s+BRD"
+
+models:
+  encoding: cl100k_base

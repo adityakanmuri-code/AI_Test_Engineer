@@ -4,9 +4,13 @@ import src.utils.logger as logger
 import logging
 from src.utils.exceptions import CustomException
 
+from src.config.settings import Config
 from src.parser.section_parser import DocumentSection
 from src.models.chunk import SemanticChunk
 from typing import List
+from transformers import AutoTokenizer
+from dotenv import load_dotenv
+import tiktoken
 
 class SemanticChunker:
     def __init__(self,max_characters:int = 4000):
@@ -81,7 +85,7 @@ class SemanticChunker:
                 logging.info(log_message)
                 raise ValueError(log_message,sys)
             chunk_id = (f"{section.section_id}_{chunk_index:03d}")
-            token_count = len(content)
+            token_count = self.__token_counter(content.strip())
             return SemanticChunk(
                 chunk_id = chunk_id,
                 section_id = section.section_id,
@@ -92,5 +96,21 @@ class SemanticChunker:
             )
         except Exception as e:
             log_message = "ERROR : Unable to split the data in __split_paragraphs functions"
+            logging.info(log_message)
+            raise CustomException(log_message,sys)
+        
+    def __token_counter(self,content:str) -> int:
+        try:
+            if not content:
+                log_message = f"ERROR : Empty Text has been passed in {sys._getframe(0).f_code.co_name}"
+                logging.info(log_message)
+                raise ValueError(log_message,sys)
+            config = Config()
+            encoding_name = config.get("models","encoding")
+            encoding = tiktoken.get_encoding(encoding_name)
+            tokens = encoding.encode(content)
+            return len(tokens)
+        except Exception as e:
+            log_message = f"ERROR : Unable to count the number of tokens in {sys._getframe(0).f_code.co_name}"
             logging.info(log_message)
             raise CustomException(log_message,sys)

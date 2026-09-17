@@ -9,7 +9,7 @@ from src.parser.section_parser import SectionParser
 from src.chunking.semantic_chunker import SemanticChunker
 
 
-class PreFormattingPipeline:
+class BRDPreprocessingPipeline:
 
     def __init__(self):
         self.ingestor = File_Ingestion()
@@ -29,6 +29,6 @@ class PreFormattingPipeline:
 
             return chunks
         except Exception as e:
-            log_message = "ERROR: Ingestion Pipeline has failed at run function"
+            log_message = f"ERROR: Ingestion Pipeline has failed at {sys._getframe(0).f_code.co_name}"
             logging.info(log_message)
             raise CustomException(log_message,sys)

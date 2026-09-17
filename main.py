@@ -1,16 +1,16 @@
 import os
 from src.config.settings import Config
-from src.pipeline.ingestion_pipeline import PreFormattingPipeline
+from src.pipeline.ingestion_pipeline import BRDPreprocessingPipeline
 
 def main():
     config = Config()
     brd_path = os.path.join(config.get("project","base_dir"),config.get("ingest","brd_path"))
 
-    ingestion_pipeline = PreFormattingPipeline()
+    ingestion_pipeline = BRDPreprocessingPipeline()
     chunks = ingestion_pipeline.preformat_pipeline(brd_path)
     
     for chunk in chunks:
-        if chunk.section_id == "9":
+        if chunk.section_id == "8":
                 print("="*50)
                 print(f"CHUNK_ID : {chunk.chunk_id} SECTION_ID : {chunk.section_id}")
                 print(f"CHUNK_TITLE : {chunk.section_title}")
