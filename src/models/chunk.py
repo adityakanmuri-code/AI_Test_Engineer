@@ -10,6 +10,7 @@ class SemanticChunk:
     section_id : str
     section_title : str
     content : str
+    chunk_index: int
     page_start: Optional[int] = None
     page_end: Optional[int] = None
     token_count: Optional[int] = None

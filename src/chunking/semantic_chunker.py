@@ -53,9 +53,7 @@ class SemanticChunker:
                     current_text = paragraph
             if current_text:
                 chunks.append(
-                    section,
-                    current_text,
-                    chunk_index
+                    self.__create_chunk(section,current_text,chunk_index)
                 )
             return chunks
         except Exception as e:
@@ -83,13 +81,14 @@ class SemanticChunker:
                 logging.info(log_message)
                 raise ValueError(log_message,sys)
             chunk_id = (f"{section.section_id}_{chunk_index:03d}")
+            token_count = len(content)
             return SemanticChunk(
                 chunk_id = chunk_id,
                 section_id = section.section_id,
                 section_title = section.title,
                 content=content,
                 chunk_index=chunk_index,
-                token_count=None
+                token_count=token_count
             )
         except Exception as e:
             log_message = "ERROR : Unable to split the data in __split_paragraphs functions"
