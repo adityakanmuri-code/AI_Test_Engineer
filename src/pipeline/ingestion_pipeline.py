@@ -14,9 +14,9 @@ class BRDPreprocessingPipeline:
     def __init__(self):
         self.ingestor = File_Ingestion()
         self.parser = SectionParser()
-        self.chunker = SemanticChunker(max_characters=4000)
+        self.chunker = SemanticChunker(max_tokens=4000)
 
-    def preformat_pipeline(self,file_path:str):
+    def run(self,file_path:str):
         try:
             #1 Text Ingestion and Formatter
             formatted_text = self.ingestor.file_ingestor(file_path=file_path)

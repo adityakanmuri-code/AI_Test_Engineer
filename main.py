@@ -7,7 +7,7 @@ def main():
     brd_path = os.path.join(config.get("project","base_dir"),config.get("ingest","brd_path"))
 
     ingestion_pipeline = BRDPreprocessingPipeline()
-    chunks = ingestion_pipeline.preformat_pipeline(brd_path)
+    chunks = ingestion_pipeline.run(brd_path)
     
     for chunk in chunks:
         if chunk.section_id == "8":

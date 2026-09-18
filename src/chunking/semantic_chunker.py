@@ -13,8 +13,8 @@ from dotenv import load_dotenv
 import tiktoken
 
 class SemanticChunker:
-    def __init__(self,max_characters:int = 4000):
-        self.max_characters = max_characters
+    def __init__(self,max_tokens:int = 1000):
+        self.max_tokens = max_tokens
 
     def chunk_sections(self,sections:List[DocumentSection]) -> List[SemanticChunk] :
         try:
@@ -46,7 +46,8 @@ class SemanticChunker:
 
             for paragraph in paragraphs:
                 candidate = (current_text+"\n"+paragraph).strip()
-                if (len(candidate) <= self.max_characters):
+                len_candidate = self.__token_counter(candidate)
+                if (len_candidate <= self.max_tokens):
                     current_text = candidate
                 else:
                     if current_text:
